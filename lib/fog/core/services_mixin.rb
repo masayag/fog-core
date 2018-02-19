@@ -11,6 +11,7 @@ module Fog
 
       raise ArgumentError, "#{provider} is not a recognized provider" unless providers.include?(provider)
 
+      require 'byebug'
       require_service_provider_library(service_name.downcase, provider)
       spc = service_provider_constant(service_name, provider_name)
       spc.new(attributes)
